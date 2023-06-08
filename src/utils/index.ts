@@ -15,7 +15,7 @@ const writeDataToCSVFile = async (filePath: string, rows: string[]) => {
   try {
     const data: string = rows.join("\n");
     await writeFile(filePath, data, "utf8");
-    console.error(`Data written to the ${filePath} file successfully`);
+    console.log(`Data written to the ${filePath} file successfully`);
   } catch (error) {
     console.error("Error writing CSV file:", error);
   }
