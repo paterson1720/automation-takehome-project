@@ -1,25 +1,47 @@
-# automation-takehome-project
+# Script Documentation
 
-Project for candidates to complete as a hiring assessment.
+This documentation provides instructions on how to use the script for performing a search and extracting information from a web page. Follow the steps below to clone the repository, install dependencies, and run the script.
 
-## Instructions
+## Prerequisites
 
-1. Fork repo to your own project.
-2. Send link to the forked repo by the provided due date.
+- Node.js and npm installed on your machine
 
-## Project Requirements
+## Cloning the Repository
 
-The objective is to build an automation application, meaning a program that performs a manual workflow in a repeatable manner. It must meet the following requirements:
+To clone the repository, open a terminal or command prompt and execute the following command:
 
-1. Use Node.js, Typescript, and the [Playwright](https://playwright.dev/) library. **IMPORTANT: Playwright should be used to facilitate the web automation, not for testing purposes.**
-2. Navigate to https://amazon.com
-3. Finds the three lowest prices for any given search term
-4. Write these products' to a CSV locally where each row contains product, price, search term, and link to the product's page.
-5. The design should be generalized enough so that the framework can be applied to another e-commerce site with relative ease and minimal re-work.
-6. Should utilize Typescript features where helpful.
-7. Should run successfully during the review session.
-8. Focus on maintainability and scalability.
+`git clone <repository_url>`
 
-### Extra Credit
 
-1. Introduce a set of tests around the project
+Replace `<repository_url>` with the URL of the repository.
+
+## Installation
+
+Navigate to the project directory in the terminal or command prompt, then run the following command to install the required dependencies:
+
+`npm install`
+
+
+## Running the Script
+
+To execute the script, use the following command format:
+
+`npm run search "<search term>"`
+
+
+Replace `<search term>` with the term you want to search for. If the search term contains spaces, it should be wrapped in double quotes.
+
+Example:
+
+`npm run search "Iphone Pro Max"`
+
+
+The script will launch a headless browser, perform the search on the specified webpage, extract relevant information from the search results, and save the extracted data to a CSV file named `search-output.csv`.
+
+Please note that the script is expecting the search term as a command-line argument. If you don't provide a search term, an error message will be displayed.
+
+**Note:** You can modify the script's configuration in the `config.ts` files according to your specific requirements to search other e-commerce website (uses Amazon by default).
+
+If you encounter any issues or errors while using the script, please refer to the error messages displayed in the terminal or command prompt for further information.
+
+That's it! You have successfully used the script to perform a search and extract information from a web page.
