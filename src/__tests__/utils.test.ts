@@ -29,29 +29,29 @@ describe("src/utils", () => {
 
     test("it should return expected CSV data for a single item", () => {
       const options = { searchTerm: "search", domainUrl: "example.com" };
-      const data: Item[] = [{ name: "Product 1", price: "10", url: "/product/1" }];
-      const expectedCSVData = ["Product 1,10,search,example.com/product/1"];
+      const data: Item[] = [{ name: "Product 1", price: "$10", url: "/product/1" }];
+      const expectedCSVData = ["Product 1,$10,search,example.com/product/1"];
       expect(utils.arrayToCSVData(data, options)).toEqual(expectedCSVData);
     });
 
     test("it should format item names correctly by removing commas", () => {
       const options = { searchTerm: "search", domainUrl: "example.com" };
-      const data: Item[] = [{ name: "Product, 2", price: "20", url: "/product/2" }];
-      const expectedCSVData = ["Product 2,20,search,example.com/product/2"];
+      const data: Item[] = [{ name: "Product, 2", price: "$20", url: "/product/2" }];
+      const expectedCSVData = ["Product 2,$20,search,example.com/product/2"];
       expect(utils.arrayToCSVData(data, options)).toEqual(expectedCSVData);
     });
 
     test("it should format item prices correctly using formatPrice function", () => {
       const options = { searchTerm: "search", domainUrl: "example.com" };
       const data: Item[] = [{ name: "Product 3", price: "30", url: "/product/3" }];
-      const expectedCSVData = ["Product 3,30,search,example.com/product/3"];
+      const expectedCSVData = ["Product 3,$30,search,example.com/product/3"];
       expect(utils.arrayToCSVData(data, options)).toEqual(expectedCSVData);
     });
 
     test("it should concatenate domainUrl and item url to create item link", () => {
       const options = { searchTerm: "search", domainUrl: "example.com" };
-      const data: Item[] = [{ name: "Product 4", price: "40", url: "/product/4" }];
-      const expectedCSVData = ["Product 4,40,search,example.com/product/4"];
+      const data: Item[] = [{ name: "Product 4", price: "$40", url: "/product/4" }];
+      const expectedCSVData = ["Product 4,$40,search,example.com/product/4"];
       expect(utils.arrayToCSVData(data, options)).toEqual(expectedCSVData);
     });
 
@@ -63,9 +63,9 @@ describe("src/utils", () => {
         { name: "Product 7", price: "70", url: "/product/7" },
       ];
       const expectedCSVData = [
-        "Product 5,50,search,example.com/product/5",
-        "Product 6,60,search,example.com/product/6",
-        "Product 7,70,search,example.com/product/7",
+        "Product 5,$50,search,example.com/product/5",
+        "Product 6,$60,search,example.com/product/6",
+        "Product 7,$70,search,example.com/product/7",
       ];
       expect(utils.arrayToCSVData(data, options)).toEqual(expectedCSVData);
     });
